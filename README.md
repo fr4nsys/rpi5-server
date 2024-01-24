@@ -36,7 +36,7 @@ Deberás tener conocimientos básicos en Linux, estar cómodo trabajando con la 
 Asegurate de entender el script y definir las variables correspondientes a tu entorno.
 
 	```
-	wget https://github.com/fr4nsys/rpi5-server/install-arch-arch-rpi5.sh
+	wget https://github.com/fr4nsys/rpi5-server/blob/main/install-arch-arch-rpi5.sh
 	chmod +x install-arch-arch-rpi5.sh
 	sudo ./install-arch-arch-rpi5.sh
 	
@@ -48,7 +48,7 @@ Asegurate de entender el script y definir las variables correspondientes a tu en
 	export DOWNLOADDIR=/tmp/pi	
 	```
 
-      	```
+```
       	#!/bin/sh
 
 	# Variables:
@@ -105,7 +105,7 @@ Asegurate de entender el script y definir las variables correspondientes a tu en
 	umount -R "$SDMOUNT"
 
 	echo "Ahora, retire la tarjeta microSD y arranque su Raspberry Pi para completar la instalación."
-	```
+```
 3. Configuración de la Raspberry Pi 5 con Arch Linux ARM ya instalado.
 
 	Inicia la Raspberry Pi para actualizar Arch Linux ARM
@@ -146,9 +146,9 @@ Asegurate de entender el script y definir las variables correspondientes a tu en
 	reboot
 	```
 
-	Cuando el Pi llegue al prompt de inicio de sesión de usuario, la señal de video HDMI cambiará a una resolución más alta. Si tienes un ventilador compatible instalado en el encabezado del ventilador del Pi, este se controlará ahora en lugar de funcionar a velocidad máxima. Una vez que inicies sesión, notarás que con `ip addr` el adaptador de red inalámbrica está disponible.
+Cuando el Pi llegue al prompt de inicio de sesión de usuario, la señal de video HDMI cambiará a una resolución más alta. Si tienes un ventilador compatible instalado en el encabezado del ventilador del Pi, este se controlará ahora en lugar de funcionar a velocidad máxima. Una vez que inicies sesión, notarás que con `ip addr` el adaptador de red inalámbrica está disponible.
 
-	Eso es todo. Ahora tienes Arch Linux ARM básico funcionando en tu Pi 5.
+Eso es todo. Ahora tienes Arch Linux ARM básico funcionando en tu Pi 5.
 	
 ![neofech](img/IMG_20240124_104336_485.jpg)
 
