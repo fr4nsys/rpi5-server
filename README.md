@@ -15,9 +15,10 @@ Deberás tener conocimientos básicos en Linux, estar cómodo trabajando con la 
 # Instalación de Arch Linux ARM en la Raspberry Pi 5 (aarch64)
 
 1. Ejecuta el siguiente comando para particionar la tarjeta SD (sustituye `/dev/sdx` por el nombre del dispositivo apropiado para tu tarjeta SD):
-   ```
+   ```bash
    fdisk /dev/sdx
    ```
+   ```bash
    a. Escribe 'p' para verificar que esta sea la tarjeta SD correcta.
    b. Escribe 'g' para crear una nueva tabla de particiones GPT en la tarjeta.
    c. Escribe 'n' para crear una nueva partición.
@@ -31,11 +32,11 @@ Deberás tener conocimientos básicos en Linux, estar cómodo trabajando con la 
    k. Presiona 'Enter' para aceptar el número de partición 2.
    l. Presiona 'Enter' para aceptar el primer y último sector por defecto.
    m. Escribe 'w' para escribir los cambios en la tarjeta.
-
+   ```
 2. Script para automatizar la descarga de Arch Linux ARM, instalación en la microSD e instalción del kernal de la Raspberry Pi Foundation 'linux-rpi',
 Asegurate de entender el script y definir las variables correspondientes a tu entorno.
 
-	```
+	```bash
 	wget https://github.com/fr4nsys/rpi5-server/blob/main/install-arch-arch-rpi5.sh
 	chmod +x install-arch-arch-rpi5.sh
 	sudo ./install-arch-arch-rpi5.sh
@@ -48,7 +49,7 @@ Asegurate de entender el script y definir las variables correspondientes a tu en
 	export DOWNLOADDIR=/tmp/pi	
 	```
 
-```
+	```bash
       	#!/bin/sh
 
 	# Variables:
@@ -105,7 +106,7 @@ Asegurate de entender el script y definir las variables correspondientes a tu en
 	umount -R "$SDMOUNT"
 
 	echo "Ahora, retire la tarjeta microSD y arranque su Raspberry Pi para completar la instalación."
-```
+	```
 3. Configuración de la Raspberry Pi 5 con Arch Linux ARM ya instalado.
 
 	Inicia la Raspberry Pi para actualizar Arch Linux ARM
