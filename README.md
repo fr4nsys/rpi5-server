@@ -169,194 +169,78 @@ Eso es todo. Ahora tienes Arch Linux ARM básico funcionando en tu Pi 5.
 
 	Habrá una advertencia de que esos paquetes entran en conflicto con el paquete `linux-rpi` y si deseas reemplazarlo. Si lo haces, `linux-rpi` se eliminará antes de instalar los nuevos paquetes. Después de eso, tu instalación de Arch Linux ARM debería ser igual a la imagen oficial de Arch Linux ARM Raspberry Pi que admite el Pi 5.
 
-
 # Servicios
 
-### 1. Servidor de Medios con Plex o Kodi
+## Instalación de CasaOS en Arch Linux ARM
 
-**Instalación y Configuración de Plex en Arch Linux:**
+**Seguir la guía oficial de CasaOS para Arch Linux ARM:**
+   - [Instrucciones oficiales](https://wiki.casaos.io/en/guides/install-on-arch-linux)
 
-1. **Instalación:**
-   - Instala Plex Media Server: `paru -S plex-media-server`
+---
 
-2. **Configuración:**
-   - Habilita y arranca Plex Media Server:
-     ```
-     sudo systemctl enable plexmediaserver.service
-     sudo systemctl start plexmediaserver.service
-     ```
-   - Configura tu biblioteca de medios siguiendo las instrucciones en la interfaz web de Plex: `http://tu_raspberry_pi_ip:32400/web`
+## Instalación desde CasaOS Store
 
-### 2. Estación de Juegos Retro con RetroPie
+La mayoría de estas aplicaciones están disponibles en la [CasaOS App Store](https://store.casaos.io/), lo que facilita la instalación, actualizaciones y configuración directamente desde la interfaz web.
 
-**Instalación de RetroPie:**
+---
 
-1. **Descarga e Instalación:**
-   - RetroPie no tiene una instalación directa para Arch Linux, por lo que deberás compilar desde el código fuente.
-   - Clona el repositorio de RetroPie: `git clone --depth=1 https://github.com/RetroPie/RetroPie-Setup.git`
-   - Entra en el directorio: `cd RetroPie-Setup`
-   - Ejecuta el script de instalación: `sudo ./retropie_setup.sh`
+### 1. Gestión de Proxies y DNS
 
-2. **Configuración:**
-   - Sigue las instrucciones en el script para instalar los emuladores y configurar tus controladores.
+- **Nginx Proxy Manager:** Proxy inverso fácil de usar.
+  - [Sitio oficial](https://nginxproxymanager.com/)
+  - [Repositorio GitHub](https://github.com/NginxProxyManager/nginx-proxy-manager)
 
-### 3. Servidor de Archivos NAS con Samba
+- **DDNS Updater:** Actualización automática para dominios dinámicos.
+  - [Repositorio GitHub](https://github.com/qdm12/ddns-updater)
 
-**Configuración de Samba para NAS:**
+- **Cloudflare Tunnel:** Acceso seguro a servicios locales desde cualquier lugar.
+  - [Documentación](https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/)
 
-1. **Instalación:**
-   - Instala Samba: `sudo pacman -S samba`
+- **Pi-hole:** Bloqueo de anuncios y rastreadores a nivel de red.
+  - [Sitio oficial](https://pi-hole.net/)
+  - [Repositorio GitHub](https://github.com/pi-hole/pi-hole)
 
-2. **Configuración:**
-   - Edita el archivo de configuración `/etc/samba/smb.conf` para configurar tus comparticiones.
-   - Reinicia el servicio Samba: `sudo systemctl restart smb.service`
+---
 
-### 4. Estación de Monitoreo de Red con Nagios
+### 2. Monitoreo y Diagnóstico
 
-**Instalación de Nagios:**
+- **Uptime Kuma:** Monitoreo de servicios con notificaciones.
+  - [Repositorio GitHub](https://github.com/louislam/uptime-kuma)
 
-1. **Instalación:**
-   - Instala Nagios: `sudo pacman -S nagios`
-   - Instala los plugins de Nagios: `sudo pacman -S nagios-plugins`
+- **IT-Tools:** Herramientas útiles para administradores de sistemas.
+  - [Repositorio GitHub](https://github.com/CorentinTh/it-tools)
 
-2. **Configuración:**
-   - Configura Nagios editando los archivos en `/etc/nagios`.
-   - Inicia Nagios: `sudo systemctl start nagios.service`
+---
 
-### 5. VPN o Firewall de Red
+### 3. Dashboards y Organizadores
 
-**Configuración de OpenVPN o iptables (aunque seguramente utilize WireGuard):**
+- **Dashy:** Dashboard personalizable para tus servicios.
+  - [Repositorio GitHub](https://github.com/Lissy93/dashy)
 
-1. **OpenVPN:**
-   - Instala OpenVPN: `sudo pacman -S openvpn`
-   - Configura OpenVPN siguiendo la documentación oficial.
+- **Heimdall:** Panel organizador de aplicaciones.
+  - [Repositorio GitHub](https://github.com/linuxserver/Heimdall)
 
-2. **Iptables:**
-   - Instala iptables: `sudo pacman -S iptables`
-   - Configura las reglas de iptables según tus necesidades de red.
+- **Flame:** Alternativa ligera para panel de inicio.
+  - [Repositorio GitHub](https://github.com/pawelmalak/flame)
 
-### 6. Servidor Web o de Desarrollo
+---
 
-**Instalación de Apache/NGINX y Lenguajes de Programación:**
+### 4. Almacenamiento y Colaboración
 
-1. **Servidor Web:**
-   - Instala Apache o NGINX: `sudo pacman -S apache` o `sudo pacman -S nginx`
-   - Configura tu servidor editando los archivos de configuración en `/etc/httpd` (para Apache) o `/etc/nginx` (para NGINX).
+- **PrivateBin:** Bloc de notas cifrado y autohospedado.
+  - [Sitio oficial](https://privatebin.info/)
+  - [Repositorio GitHub](https://github.com/PrivateBin/PrivateBin)
 
-2. **Lenguajes de Programación:**
-   - Instala PHP, Python, etc., según tus necesidades: `sudo pacman -S php python`
+- **Immich:** Galería multimedia para fotos y videos.
+  - [Repositorio GitHub](https://github.com/alextran1502/immich)
 
-# Exponer servicios en internet
+---
 
-En esta parte se mostrará la configuración de una Raspberry Pi para hospedar varios servicios, utilizando Nginx como proxy inverso y gestionando un dominio dinámico con DuckDNS. También incluiremos la obtención de certificados SSL/TLS con Let's Encrypt y la configuración específica de Nextcloud, entre otros servicios.
+### 5. Multimedia y Descargas
 
-### Paso 1: Registro en DuckDNS y Creación de un Subdominio
+- **MeTube:** Descargador de videos en streaming.
+  - [Repositorio GitHub](https://github.com/alexta69/metube)
 
-- Regístrate en DuckDNS: Visita [DuckDNS](https://www.duckdns.org/) y crea una cuenta.
-- Crea un subdominio en DuckDNS y anota el token proporcionado.
-
-### Paso 2: Configuración del Cliente de DNS Dinámico en Raspberry Pi
-
-- Abre una terminal y ejecuta:
-
-  ```bash
-  paru -S duckdns
-  ```
-
-- Crea y edita un archivo de configuración para DuckDNS:
-
-  ```bash
-  nano /etc/duckdns/duckdns_token
-  ```
-
-  Añade tu token de DuckDNS aquí.
-
-- Crea un script para actualizar la IP en DuckDNS:
-
-  ```bash
-  nano /usr/local/bin/duckdns.sh
-  ```
-
-  Copia y pega el script proporcionado y reemplaza "tu-subdominio-duckdns" y "tu-token-duckdns" con tus datos.
-
-- Haz que el script sea ejecutable:
-
-  ```bash
-  sudo chmod +x /usr/local/bin/duckdns.sh
-  ```
-
-### Paso 3: Configuración del Router
-
-- Configura el reenvío de puertos (Port Forwarding) en tu router para redirigir los puertos 80 (HTTP) y 443 (HTTPS) a la IP local de tu Raspberry Pi.
-
-### Paso 4: Instalación de Nginx
-
-- Instala Nginx:
-
-  ```bash
-  sudo pacman -S nginx
-  ```
-
-### Paso 5: Configuración de Nginx como Proxy Inverso
-
-- Crea y configura un archivo de sitio para Nginx:
-
-  ```bash
-  sudo nano /etc/nginx/sites-available/miservicio
-  ```
-
-  Añade la configuración de proxy inverso proporcionada, ajustando tu subdominio DuckDNS.
-
-- Habilita el sitio:
-
-  ```bash
-  sudo ln -s /etc/nginx/sites-available/miservicio /etc/nginx/sites-enabled/
-  ```
-
-### Paso 6: Obtención de Certificados SSL/TLS con Let's Encrypt
-
-- Instala Certbot y su integración con Nginx:
-
-  ```bash
-  sudo pacman -S certbot certbot-nginx
-  ```
-
-- Solicita y configura automáticamente un certificado SSL/TLS:
-
-  ```bash
-  sudo certbot --nginx -d tu-subdominio-duckdns.duckdns.org
-  ```
-
-### Paso 7: Instalación de Nextcloud
-
-- Sigue las instrucciones de instalación de Nextcloud desde su [sitio web oficial](https://nextcloud.com/install/), que incluirá la instalación de PHP, una base de datos (MySQL/MariaDB), y otras dependencias.
-
-### Paso 8: Configuración de Otros Servicios
-
-- Repite el proceso de instalación y configuración para otros servicios que desees, como Rocket.Chat o Matrix Synapse.
-
-### Paso 9: Reinicio de Nginx y Programación de Actualización de IP DuckDNS
-
-- Reinicia Nginx:
-
-  ```bash
-  sudo service nginx restart
-  ```
-
-- Configura una tarea cron para actualizar la IP en DuckDNS:
-
-  ```bash
-  crontab -e
-  ```
-
-  Añade:
-
-  ```bash
-  */5 * * * * /usr/local/bin/duckdns.sh >/dev/null 2>&1
-  ```
-
-Con estos pasos, deberías tener tu Raspberry Pi configurada para servir varios servicios a través de Nginx con HTTPS, utilizando un dominio DuckDNS y manteniendo tu IP actualizada. Recuerda reemplazar las partes del script y las configuraciones con tus propios datos de subdominio y token.
-
-### Consideraciones Finales
-- **Gestión de recursos**: Monitoriza el uso de CPU y memoria regularmente.
-- **Almacenamiento**: Utiliza discos duros externos o almacenamiento en red para archivos multimedia y juegos.
+- **Excalidraw:** Herramienta de dibujo colaborativo.
+  - [Sitio oficial](https://excalidraw.com/)
+  - [Repositorio GitHub](https://github.com/excalidraw/excalidraw)
