@@ -50,9 +50,8 @@ Asegurate de entender el script y definir las variables correspondientes a tu en
 	```
 
 	```bash
-      	#!/bin/sh
-
-	# Variables:
+	#!/bin/sh
+ 	# Variables:
 	export SDDEV="/dev/sdX"
 	export SDPARTBOOT="${SDDEV}1"
 	export SDPARTROOT="${SDDEV}2"
@@ -97,7 +96,7 @@ Asegurate de entender el script y definir las variables correspondientes a tu en
 	curl -JLO http://fl.us.mirror.archlinuxarm.org/aarch64/core/linux-rpi-6.6.13-2-aarch64.pkg.tar.xz
 
 	# Extracción y copia del kernel
-	tar xf linux-rpi-6.6.13-2-aarch64.pkg.tar.xz
+	tar xf linux-rpi*aarch64.pkg.tar.xz
 	cp -rf boot/* "${SDMOUNT}/boot/"
 	popd
 
