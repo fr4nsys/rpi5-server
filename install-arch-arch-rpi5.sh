@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Variables:
-export SDDEV="/dev/sdb"
+export SDDEV="/dev/sdX"
 export SDPARTBOOT="${SDDEV}1"
 export SDPARTROOT="${SDDEV}2"
 export SDMOUNT="/mnt/sdrpi"
@@ -42,10 +42,10 @@ mkdir -p "${DOWNLOADDIR}/linux-rpi"
 pushd "${DOWNLOADDIR}/linux-rpi" || exit 1
 
 # Si el enlace no funciona, encuentra una nueva versión aquí: http://fl.us.mirror.archlinuxarm.org/aarch64/core/
-curl -JLO http://fl.us.mirror.archlinuxarm.org/aarch64/core/linux-rpi-6.6.13-2-aarch64.pkg.tar.xz
+curl -JLO http://fl.us.mirror.archlinuxarm.org/aarch64/core/linux-rpi-6.12.6-1-aarch64.pkg.tar.xz
 
 # Extracción y copia del kernel
-tar xf linux-rpi-6.6.13-2-aarch64.pkg.tar.xz
+tar xf linux-rpi*aarch64.pkg.tar.xz
 cp -rf boot/* "${SDMOUNT}/boot/"
 popd
 
